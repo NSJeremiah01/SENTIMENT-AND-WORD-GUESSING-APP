@@ -42,5 +42,23 @@ with tab1:
           st.error(message)
           
 # Tab 2: guess the hidden word
+with tab2:
+  st.write("Enter a sentence and replace one word with [MASK].")
+
+masked_text = st.text_input(
+    "Your sentence",
+    "The sun rises in the [MASK]."
+)
+
+if st.button("Guess missing word"):
+    if "[MASK]" not in masked_text:
+        st.warning("Please include [MASK] in your sentence.")
+    else:
+        with st.spinner("Guessing..."):
+            result = load_fill_mask_model()(masked_text)
+
+        st.write("Possible words:")
+        for prediction in result:
+            st.write(prediction["token_str"], prediction["score"])
 
     
