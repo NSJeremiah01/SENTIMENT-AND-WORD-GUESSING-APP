@@ -16,16 +16,16 @@ def load_sentiment_model():
     model="distilbert-base-uncased-finetuned-sst-2-english",
   )
   
-  @st.cache_resource
-  def load_fill_mask_model():
+@st.cache_resource
+def load_fill_mask_model():
     return pipeline("fill-mask", model="distilbert-base-uncased")
   
   # The special symbol that hides a word (it is [MASK] for this model) 
   
-  tab1, tab2 = st.tabs(["Sentiment", "Missing word"])
+tab1, tab2 = st.tabs(["Sentiment", "Missing word"])
   
   # Tab 1: is the sentence positive or negative?
-  with tab1:
+with tab1:
     st.write("Type  sentence. The model will say if it is POSITIVE or NEGATIVE.")
     text = st.text_area("Your sentence", "I love learning about artificial intelligence")
     
