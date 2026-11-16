@@ -5,6 +5,9 @@ from transformers import pipeline
 st.set_page_config(page_title="My AI App")
 st.title("SENTIMENT AND WORD GUESSING APP")
 
+st.write("The Streamlit app is running.")
+st.success("Testing the app interface.")
+
 # Load each model only once, then keep it in memory(this saves time and memory )
 @st.cache_resource
 def load_sentiment_model():
