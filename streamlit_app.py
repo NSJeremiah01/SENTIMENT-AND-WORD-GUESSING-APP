@@ -6,7 +6,7 @@ st.set_page_config(page_title="My AI App")
 st.title("SENTIMENT AND WORD GUESSING APP")
 
 # Load each model only once, then keep it in memory(this saves time and memory )
-@st.cache_resources
+@st.cache_resource
 def load_sentiment_model():
   return pipeline(
     "sentiment-analysis",
