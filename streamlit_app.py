@@ -59,6 +59,12 @@ if st.button("Guess missing word"):
 
         st.write("Possible words:")
         for prediction in result:
-            st.write(prediction["token_str"], prediction["score"])
+          word = prediction["token_str"]
+          score = prediction["score"]
+
+          st.write(f"**{word}**")
+          st.progress(score)
+          st.caption(f"Score: {score:.2%}")
+          
 
     
